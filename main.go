@@ -54,5 +54,18 @@ func generatePassword(length int, difficulty string) string {
 }
 
 func main() {
-	fmt.Println(generatePassword(10, "medium"))
+	difficulty := ""
+	fmt.Print("Choose difficulty (easy, medium, hard): ")
+	fmt.Scan(&difficulty)
+
+	if difficulty == "easy" {
+		fmt.Println(generatePassword(10, "easy"))
+	} else if difficulty == "medium" {
+		fmt.Println(generatePassword(10, "medium"))
+	} else if difficulty == "hard" {
+		fmt.Println(generatePassword(10, "hard"))
+	} else {
+		fmt.Println("ERROR: WRONG DIFFICULTY")
+	}
+
 }
