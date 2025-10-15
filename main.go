@@ -50,22 +50,33 @@ func generatePassword(length int, difficulty string) string {
 		}
 	}
 
-	return newPassword
+	return "Your password: " + newPassword + "\n"
 }
 
 func main() {
+
 	difficulty := ""
+	length := 0
+
+	fmt.Println("")
+	fmt.Print("Choose password`s length (6-15): ")
+	fmt.Scan(&length)
+
+	fmt.Println("")
+
 	fmt.Print("Choose difficulty (easy, medium, hard): ")
 	fmt.Scan(&difficulty)
+	fmt.Println("")
 
-	if difficulty == "easy" {
-		fmt.Println(generatePassword(10, "easy"))
-	} else if difficulty == "medium" {
-		fmt.Println(generatePassword(10, "medium"))
-	} else if difficulty == "hard" {
-		fmt.Println(generatePassword(10, "hard"))
+	if difficulty == "easy" && length >= 6 && length <= 15 {
+		fmt.Println(generatePassword(length, "easy"))
+	} else if difficulty == "medium" && length >= 6 && length <= 15 {
+		fmt.Println(generatePassword(length, "medium"))
+	} else if difficulty == "hard" && length >= 6 && length <= 15 {
+		fmt.Println(generatePassword(length, "hard"))
 	} else {
-		fmt.Println("ERROR: WRONG DIFFICULTY")
+		fmt.Println("ERROR: WRONG DATA")
+		fmt.Println("")
 	}
 
 }
